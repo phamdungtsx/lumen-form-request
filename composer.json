@@ -9,8 +9,15 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "phamdungtsx/lumen-app-response": "dev-master"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/phamdungtsx/lumen-app-response.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Phamdungtsx\\": "src/"
