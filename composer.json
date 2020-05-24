@@ -1,29 +1,19 @@
 {
     "name": "phamdungtsx/lumen-form-request",
-    "description": "Form request is a package for Lumen that lets developer validate form requests like Laravel does.",
+    "description": "Laravel Form Request adaptation for Lumen framework.",
     "keywords": [
-        "lumen",
-        "form-request",
-        "validation"
+        "form",
+        "request",
+        "lumen"
     ],
-    "type": "library",
+    "license": "MIT",
+    "type": "project",
     "require": {
-        "php": ">=7.2",
-        "illuminate/support": "^7.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.0"
+        "php": ">=7.2"
     },
     "autoload": {
         "psr-4": {
-            "Phamdungtsx\\Form\\": "src/"
+            "Urameshibr\\": "src/"
         }
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "phamdungtsx"
-        }
-    ],
-    "minimum-stability": "dev"
+    }
 }

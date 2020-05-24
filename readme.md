@@ -1,33 +1,29 @@
-Lumen Form Request
-==========
+# lumen-form-request
+Laravel Form Request adaptation for Lumen framework
 
-## Description
+### How to install
 
-A package that helps developer to segregate the validation logic from controller to a separate dedicated class. Lumen doesn't have any `FormRequest` class like Laravel. This will let you do that.
-
-
-### Installation
+**Lumen 5.6 +**
 
 ```
 composer require phamdungtsx/lumen-form-request
 ```
 
-* Add the service provider in `bootstrap/app.php`
+* Add the service provider in bootstrap/app.php
 
 ```
-$app->register(Phamdungtsx\Form\FormRequestServiceProvider::class);
+$app->register(Phamdungtsx\Providers\FormRequestServiceProvider::class);
 ```
 
-Next step is create your FormRequest and extends from `Phamdungtsx\Form\FormRequest`
-
+Next step is create your FormRequest and extends from Phamdungtsx/Requests/FormRequest
 ### Example
 
-```php
+```
 <?php
 
 namespace App\Http\Requests;
 
-use Phamdungtsx\Form\FormRequest;
+use Phamdungtsx\Requests\FormRequest;
 
 class StoreDeviceRequest extends FormRequest
 {
@@ -44,3 +40,5 @@ class StoreDeviceRequest extends FormRequest
 	}
 }
 ```
+
+Enjoy!
