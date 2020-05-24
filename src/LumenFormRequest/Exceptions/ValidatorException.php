@@ -1,7 +1,7 @@
 <?php
 namespace Phamdungtsx\LumenFormRequest\Exceptions;
 
-use AppException;
+use Phamdungtsx\LumenAppResponse\Exceptions\AppException;
 
 class ValidatorException extends AppException
 {
