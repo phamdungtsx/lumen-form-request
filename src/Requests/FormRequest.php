@@ -103,18 +103,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
         }
         return false;
     }
-    /**
-     * Handle a failed authorization attempt.
-     *
-     * @return void
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function failedAuthorization()
-    {
-        $this->setStatusCode(403);
-        return $this->getResponse();
-    }
+
     /**
      * Handle a failed authorization attempt.
      *
@@ -129,6 +118,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
                  ->setException($exception);
         throw new UnauthorizedException($this->getResponse());
     }
+    
     /**
      * Get the proper failed validation response for the request.
      *
