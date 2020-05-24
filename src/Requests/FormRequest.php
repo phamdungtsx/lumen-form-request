@@ -3,7 +3,7 @@
 namespace Phamdungtsx\Requests;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Phamdungtsx\Response;
 use Illuminate\Http\JsonResponse;
 use Laravel\Lumen\Http\Redirector;
 use Illuminate\Container\Container;
@@ -16,7 +16,7 @@ use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
 class FormRequest extends Request implements ValidatesWhenResolved
 {
-    use ValidatesWhenResolvedTrait;
+    use ValidatesWhenResolvedTrait, Response;
     /**
      * The container instance.
      *
@@ -108,12 +108,12 @@ class FormRequest extends Request implements ValidatesWhenResolved
      *
      * @return void
      *
-     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     * @return \Illuminate\Http\JsonResponse
      */
     protected function failedAuthorization()
     {
-//        throw new HttpResponseException($this->forbiddenResponse());
-        throw new UnauthorizedException($this->forbiddenResponse());
+        $this->setStatusCode(403);
+        return $this->getResponse();
     }
     /**
      * Get the proper failed validation response for the request.
@@ -124,15 +124,6 @@ class FormRequest extends Request implements ValidatesWhenResolved
     public function response(array $errors)
     {
         return new JsonResponse($errors, 422);
-    }
-    /**
-     * Get the response for a forbidden operation.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function forbiddenResponse()
-    {
-        return new Response('Forbidden', 403);
     }
     /**
      * Format the errors from the given Validator instance.
