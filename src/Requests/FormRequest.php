@@ -4,6 +4,7 @@ namespace Phamdungtsx\Requests;
 
 use Illuminate\Http\Request;
 use Phamdungtsx\Response;
+use Phamdungtsx\Exceptions\ValidatorException;
 use Illuminate\Http\JsonResponse;
 use Laravel\Lumen\Http\Redirector;
 use Illuminate\Container\Container;
@@ -83,13 +84,11 @@ class FormRequest extends Request implements ValidatesWhenResolved
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return void
      *
-     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     * @throws \Phamdungtsx\Exceptions\AppException
      */
     protected function failedValidation(Validator $validator)
     {
-        throw new HttpResponseException($this->response(
-            $this->formatErrors($validator)
-        ));
+        throw new ValidatorException($validator->getMessageBag()->toArray());
     }
     /**
      * Determine if the request passes the authorization check.
@@ -109,11 +108,11 @@ class FormRequest extends Request implements ValidatesWhenResolved
      *
      * @return void
      *
-     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     * @throws \Illuminate\Http\Exceptions\UnauthorizedException
      */
     protected function failedAuthorization()
     {
-        throw new UnauthorizedException();
+        throw new UnauthorizedException(trans('auth.unauthorized'));
     }
 
     /**
@@ -132,10 +131,10 @@ class FormRequest extends Request implements ValidatesWhenResolved
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
      * @return array
      */
-    protected function formatErrors(Validator $validator)
-    {
-        return $validator->getMessageBag()->toArray();
-    }
+    // protected function formatErrors(Validator $validator)
+    // {
+    //     return $validator->getMessageBag()->toArray();
+    // }
     /**
      * Set the Redirector instance.
      *
