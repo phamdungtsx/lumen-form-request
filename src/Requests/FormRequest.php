@@ -113,8 +113,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
      */
     protected function failedAuthorization()
     {
-        $this->setStatusCode(403);
-        throw new UnauthorizedException($this->getResponse());
+        throw new UnauthorizedException();
     }
 
     /**
