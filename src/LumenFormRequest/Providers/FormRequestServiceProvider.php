@@ -1,8 +1,8 @@
 <?php
 
-namespace Phamdungtsx\Providers;
+namespace Phamdungtsx\LumenFormRequest\Providers;
 
-use Phamdungtsx\Requests\FormRequest;
+use Phamdungtsx\LumenFormRequest\Requests\FormRequest;
 use Laravel\Lumen\Http\Redirector;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,5 +1,5 @@
 <?php
-namespace Phamdungtsx\Exceptions;
+namespace Phamdungtsx\LumenFormRequest\Exceptions;
 
 use AppException;
 

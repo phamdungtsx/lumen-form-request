@@ -1,10 +1,10 @@
 <?php
 
-namespace Phamdungtsx\Requests;
+namespace Phamdungtsx\LumenFormRequest\Requests;
 
 use Illuminate\Http\Request;
-use Phamdungtsx\Response;
-use Phamdungtsx\Exceptions\ValidatorException;
+use Phamdungtsx\LumenAppResponse\Response;
+use Phamdungtsx\LumenFormRequest\Exceptions\ValidatorException;
 use Illuminate\Http\JsonResponse;
 use Laravel\Lumen\Http\Redirector;
 use Illuminate\Container\Container;
